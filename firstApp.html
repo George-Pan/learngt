@@ -6,7 +6,27 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"><!-- 不懂 -->
 	<link rel="stylesheet" href="https://js.arcgis.com/3.15/esri/css/esri.css">
-	
+	<script src="https://js.arcgis.com/3.15/"></script>
+	<!-- 注意：只链接到index所在文件夹 -->
+	<script>
+		var map;
+		require(["esri/map", "dojo/domReady!"], function(Map) {
+		// "dojo/domReady!" helps ensure the DOM is available before executing any code
+		//  "dojo/ready" more serious (and and waits for all outstanding require calls to finish),If an app uses parseOnLoad: true, Dojo Dijits, widgets from the Esri library or custom dijits, dojo/ready should be used
+		//  Map class that was loaded from the esri/map module
+	    // code to create the map and add a basemap will go here
+	  		map = new Map("mapDiv", {
+	    	center: [121, 31],
+	    	zoom: 3,
+	   		basemap: "streets"
+	   		//道路图为主，最小达到1城市x环级别
+	  		//constructor 
+			// Additional basemap options are:  "satellite", "hybrid", "topo", "gray", "oceans", "osm", "national-geographic"
+			//实际位置：library\3.15\3.15\esri\images\basemap，下载的版本内只包含一张缩略图
+
+			});
+  		});
+	</script>
 	<style>
 	  html, body, #mapDiv {
 	    padding: 0;
